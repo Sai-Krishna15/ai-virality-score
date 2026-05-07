@@ -9,7 +9,7 @@ services:
     # Since it's a monorepo, we build from the root so workspaces are resolved
     buildCommand: npm install && npm run build
     # After build, we start the API from its specific workspace directory
-    startCommand: npm start
+    startCommand: cd apps/api && npm start
     envVars:
       - key: NODE_ENV
         value: production
