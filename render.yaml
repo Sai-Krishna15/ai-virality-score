@@ -1,26 +1,20 @@
 services:
-  # ── Backend Node.js API ──
   - type: web
     name: virality-api
     env: node
-    rootDir: apps/api          # ✅ Build scoped to API folder only
-    buildCommand: cd ../.. && npm install && npm run build --workspace=apps/api
-    startCommand: node dist/index.js   # ✅ No need for cd, rootDir handles it
+    buildCommand: npm install && npm run build --workspace=apps/api
+    startCommand: npm run start --workspace=apps/api
     envVars:
       - key: NODE_ENV
         value: production
-      - key: PORT
-        value: 10000            # ✅ Explicit port (Render default)
       - key: GEMINI_API_KEY
         sync: false
 
-  # ── Frontend Next.js Web App ──
   - type: web
     name: virality-web
     env: node
-    rootDir: apps/web          # ✅ Build scoped to web folder only
-    buildCommand: cd ../.. && npm install && npm run build --workspace=apps/web
-    startCommand: npx next start -p $PORT   # ✅ Use Render's dynamic $PORT
+    buildCommand: npm install && npm run build --workspace=apps/web
+    startCommand: npm run start --workspace=apps/web
     envVars:
       - key: NODE_ENV
         value: production
