@@ -5,20 +5,21 @@
     "lib": [
       "ES2020"
     ],
-    "outDir": "./dist",
-    // "rootDir": "./src",
+    "outDir": "dist",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
+    "baseUrl": ".",
     "paths": {
       "@ai-virality/shared": [
-        "../../packages/shared/src/types"
+        "../../packages/shared/src"
       ]
     }
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "../../packages/shared/src/**/*"
   ],
   "exclude": [
     "node_modules",
