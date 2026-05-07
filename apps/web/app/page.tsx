@@ -41,15 +41,29 @@ export default function Home() {
   const [result, setResult] = useState<AnalyzeResponse | null>(null);
   const [originalCaption, setOriginalCaption] = useState('');
 
+
+
   /* ── Results dashboard ── */
   if (result) {
-    const topMetric = Object.entries(result.breakdown).reduce(
-      (best, [k, v]) => (v.score > best.score ? { key: k, score: v.score } : best),
-      { key: '', score: 0 }
+
+    type MetricKey = keyof typeof result.breakdown;
+
+    const entries = Object.entries(result.breakdown) as [
+      MetricKey,
+      { score: number }
+    ][];
+
+
+    const topMetric = entries.reduce(
+      (best, [k, v]) =>
+        v.score > best.score ? { key: k, score: v.score } : best,
+      { key: entries[0][0], score: 0 }
     );
-    const bottomMetric = Object.entries(result.breakdown).reduce(
-      (worst, [k, v]) => (v.score < worst.score ? { key: k, score: v.score } : worst),
-      { key: '', score: 100 }
+
+    const bottomMetric = entries.reduce(
+      (worst, [k, v]) =>
+        v.score < worst.score ? { key: k, score: v.score } : worst,
+      { key: entries[0][0], score: 100 }
     );
 
     return (
@@ -147,8 +161,8 @@ export default function Home() {
           <div className="animate-fade-up animate-fade-up-1 grid grid-cols-3 divide-x divide-white/[0.06] rounded-2xl border border-white/[0.07] bg-white/[0.02] overflow-hidden">
             {[
               { value: '4 metrics', label: 'Analysed' },
-              { value: '< 5s',     label: 'Results' },
-              { value: 'Free',     label: 'No signup' },
+              { value: '< 5s', label: 'Results' },
+              { value: 'Free', label: 'No signup' },
             ].map(({ value, label }) => (
               <div key={label} className="flex flex-col items-center py-3 gap-0.5">
                 <span className="text-sm font-semibold text-white/70">{value}</span>

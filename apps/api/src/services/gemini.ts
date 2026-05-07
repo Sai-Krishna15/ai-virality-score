@@ -1,8 +1,8 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import { Platform, ScoreBreakdown } from '@ai-virality/shared';
 import { hookPrompt } from '../prompts/hook';
 import { captionPrompt } from '../prompts/caption';
 import { visualPrompt } from '../prompts/visual';
+import { Platform, ScoreBreakdown } from '@ai-virality/shared';
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
 const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash-lite' });

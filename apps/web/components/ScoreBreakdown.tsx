@@ -7,9 +7,9 @@ import { scoreColor, scoreBg } from '@/lib/utils';
 interface Props { breakdown: ScoreBreakdown }
 
 const METRICS: { key: keyof ScoreBreakdown; icon: string; title: string; desc: string }[] = [
-  { key: 'hook',     icon: '🎣', title: 'Hook Strength',     desc: 'First-line impact & curiosity' },
-  { key: 'visual',   icon: '🖼️', title: 'Visual Appeal',     desc: 'Composition, contrast & clarity' },
-  { key: 'caption',  icon: '✍️', title: 'Caption Quality',   desc: 'CTA, readability & emotion' },
+  { key: 'hook', icon: '🎣', title: 'Hook Strength', desc: 'First-line impact & curiosity' },
+  { key: 'visual', icon: '🖼️', title: 'Visual Appeal', desc: 'Composition, contrast & clarity' },
+  { key: 'caption', icon: '✍️', title: 'Caption Quality', desc: 'CTA, readability & emotion' },
   { key: 'hashtags', icon: '#️⃣', title: 'Hashtag Relevance', desc: 'Niche match & discoverability' },
 ];
 
@@ -26,7 +26,7 @@ export default function ScoreBreakdownCard({ breakdown }: Props) {
 
         return (
           <button
-            key={key}
+            key={String(key)}
             type="button"
             onClick={() => setExpanded(isOpen ? null : key)}
             className={`
@@ -69,7 +69,7 @@ export default function ScoreBreakdownCard({ breakdown }: Props) {
             {/* Tips */}
             {isOpen && sub.tips.length > 0 && (
               <ul className="mt-3 pt-3 border-t border-white/[0.07] space-y-2">
-                {sub.tips.map((tip, i) => (
+                {sub.tips.map((tip: string, i: number) => (
                   <li key={i} className="flex gap-2 text-xs text-white/55 leading-relaxed">
                     <span className="text-violet-400 flex-shrink-0 mt-px">→</span>
                     {tip}

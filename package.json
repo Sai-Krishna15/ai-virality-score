@@ -9,7 +9,7 @@
     "dev:web": "npm run dev --workspace=apps/web",
     "dev:api": "npm run dev --workspace=apps/api",
     "dev": "concurrently \"npm run dev:api\" \"npm run dev:web\"",
-    "build": "npm run build --workspaces",
+    "build": "npm run build --workspace=apps/api && npm run build --workspace=apps/web",
     "lint": "npm run lint --workspaces"
   },
   "devDependencies": {
