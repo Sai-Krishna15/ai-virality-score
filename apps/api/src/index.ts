@@ -4,10 +4,14 @@ import cors from 'cors';
 import next from 'next';
 import { analyzeRouter } from './routes/analyze';
 import path from 'path';
+import fs from 'fs';
 
 const dev = false;
 
 const webDir = path.join(process.cwd(), 'apps/web');
+
+console.log('WEB DIR:', webDir);
+console.log('.next exists:', fs.existsSync(path.join(webDir, '.next')));
 
 // 👇 IMPORTANT: point to your web app
 const nextApp = next({ dev, dir: webDir });
