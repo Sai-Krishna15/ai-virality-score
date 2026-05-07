@@ -79,7 +79,7 @@ export default function Home() {
             </div>
 
             {/* ── Hero stats row ── */}
-            <div className="animate-fade-up animate-fade-up-1 grid grid-cols-3 gap-3">
+            <div className="animate-fade-up animate-fade-up-1 grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div className="col-span-1 flex flex-col items-center justify-center gap-1 rounded-2xl border border-white/[0.07] bg-white/[0.03] py-6">
                 <ScoreGauge score={result.score} />
               </div>
