@@ -3,11 +3,14 @@ import express from 'express';
 import cors from 'cors';
 import next from 'next';
 import { analyzeRouter } from './routes/analyze';
+import path from 'path';
 
 const dev = false;
 
+const webDir = path.join(process.cwd(), 'apps/web');
+
 // 👇 IMPORTANT: point to your web app
-const nextApp = next({ dev, dir: 'apps/web' });
+const nextApp = next({ dev, dir: webDir });
 const handle = nextApp.getRequestHandler();
 
 const PORT = Number(process.env.PORT) || 3000;

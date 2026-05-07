@@ -144,10 +144,6 @@ export default function Home() {
 
           {/* ── Hero copy ── */}
           <div className="text-center space-y-4 animate-fade-up">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-violet-500/25 bg-violet-500/8 text-violet-300 text-[11px] font-medium tracking-wide uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" />
-              Powered by Gemini AI
-            </div>
             <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.1] tracking-tight text-white/90">
               Find out why your content<br />
               <span className="gradient-text">isn&apos;t going viral</span>
