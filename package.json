@@ -11,9 +11,12 @@
     "dev": "concurrently \"npm run dev:api\" \"npm run dev:web\"",
     "build": "npm run build --workspace=apps/api && npm run build --workspace=apps/web",
     "lint": "npm run lint --workspaces",
-    "start": "npm run start --workspace=apps/api"
+    "start": "node apps/api/dist/apps/api/src/index.js"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "next": "^16.2.5"
   }
 }

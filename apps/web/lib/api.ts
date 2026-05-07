@@ -3,7 +3,7 @@ import { AnalyzeRequest, AnalyzeResponse } from '@/types';
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
 
 export async function analyzePost(payload: AnalyzeRequest): Promise<AnalyzeResponse> {
-  const res = await fetch(`${API_URL}/analyze`, {
+  const res = await fetch(`/analyze`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
